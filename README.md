@@ -1,120 +1,163 @@
-# netflix-content-analysis--powerbi
-This project provides an in-depth analysis of Netflix's content library, dissecting distribution trends by type, release year, genre, and country. Built using Power BI with data from Kaggle, this report offers actionable insights into content strategy, audience preferences, and global reach through interactive visualizations.
+# Netflix Content Strategy & Library Analysis
+## *Power BI dashboard project analysing content mix, genre trends, and global distribution*
+# Overview
 
-# Netflix Content Analysis: Trends & Distribution
+This project demonstrates how content library data can be analysed to support content strategy, portfolio planning, and global distribution decisions for a streaming platform.
 
-## Executive Summary:
+Working with publicly available Netflix datasets, I built an interactive Power BI dashboard to analyse content distribution across movies vs TV shows, release year trends, genres, ratings, and geographic reach.
 
-This project conducts a comprehensive analysis of Netflix's content library, presented through an interactive Power BI dashboard. The analysis dissects content distribution by type (movies vs. TV shows), release year trends, genre popularity, and geographic reach. The goal is to provide data-driven insights into content strategy, identify popular categories, and understand the global footprint of Netflix's offerings.
+Using:
 
-## Problem Statement:
+- Power BI data modelling and dashboarding
 
-The primary objective was to transform raw Netflix content data into actionable intelligence across key content strategy areas:
+- Content type, genre, and rating analysis
 
-- **Content Type Distribution**: To precisely identify the proportion of Movies versus TV Shows in the Netflix library and analyze their distribution over release years.
+- Time-based trend analysis by release year
 
-- **Content Reach & Diversity**: To understand the number of countries Netflix content originates from and the top directors by country and content type.
+- Geographic analysis by country and director
 
-- **Genre and Rating Analysis**: To assess the popularity of various genres and the distribution of content by rating.
+The goal was to translate raw content metadata into strategic insights that help understand audience preferences, content investment trends, and Netflix’s global content footprint.
 
-## Data Sources and Engineering:
+# Business Problem
 
-This project utilized publicly available datasets from Kaggle, which were integrated and transformed within Power BI to create the comprehensive Netflix Content Dashboard. The primary data sources include:
+Streaming platforms manage large and diverse content libraries, but often lack clarity on how content mix and distribution evolve over time.
 
-- netflix data.xlsx - netflix1.csv: Contains core content details (show_id, type, title, release_year).
+Key challenges addressed:
 
-- netflix data.xlsx - Sheet2.csv: Provides additional content attributes (release_year, rating, duration, listed_in (genre)).
+- Limited visibility into content composition (movies vs TV shows)
 
-- netflix data.xlsx - Sheet1.csv: Includes director and country information (director, country, date_added, release_year).
+- Difficulty identifying high-performing genres and content trends
 
-The release_year column served as a common key for establishing relationships and integrating data across these sheets within the Power BI data model.
+- Lack of geographic perspective on content sourcing
 
-My data engineering process (as implemented within Power BI's Power Query Editor and data model) involved:
+- Over-reliance on aggregate content counts without strategic context
 
-- **Data Acquisition**: Sourcing the publicly available Netflix datasets from Kaggle directly into Power BI.
+Key questions addressed:
 
-- **Data Cleaning and Preprocessing**: Handled missing values (e.g., "Not Given" for director), ensured consistent data types, and performed necessary transformations to prepare data for analysis.
+- How is Netflix’s content library structured today?
 
-- **Feature Engineering**: Calculated key performance metrics and created new features to support deeper analysis, including:
+- How has content strategy evolved over time?
 
-  - Total Content
+- Which genres dominate the platform’s catalogue?
 
-  - No. of Countries
+- How globally diverse is the content library?
 
-  - No. of Shows
+# Solution Approach
 
-  - No. of Movies
+I designed a Power BI dashboard to transform raw Netflix content data into insight-led views for strategic analysis.
 
-  - Categorization of content by TYPE (Movie/TV Show).
+🔹 Data Integration & Modelling
 
-  - Aggregation of content by RELEASE YEAR, GENRE, COUNTRY, and DIRECTOR.
+- Integrated multiple Netflix datasets (content details, genres, ratings, directors, countries)
 
-- **Understanding Cardinality**:
-  
-Cardinality refers to the number of unique values in a column. Understanding cardinality is crucial for effective data modeling and visualization in Power BI:
+- Established relationships across datasets using release year and content attributes
 
-  - **High Cardinality**: Columns like show_id are expected to have very high cardinality, as each entry is a unique identifier. These are essential for identifying individual records but are not typically used for direct categorical visualization.
+- Cleaned missing values and standardised categorical fields
 
- - **Low Cardinality**: Columns such as type (Movie/TV Show) have low cardinality, containing a limited number of distinct values. These are ideal for creating categorical visualizations (e.g., bar charts, pie charts) and filters.
+🔹 Content Portfolio Analysis
 
-  - **Medium to High Cardinality**: Columns like release_year, country, and listed_in (genre) typically have medium to high cardinality. While they contain many distinct values, they are highly valuable for trend analysis, geographic breakdowns, and detailed genre exploration. Recognizing their cardinality helps in choosing appropriate visualization types and optimizing data model performance.
+- Analysed total content volume and split between Movies and TV Shows
 
-## Methodology:
+- Evaluated content growth trends over release years
 
-The analytical approach for this project was multi-faceted, focusing on turning raw content data into actionable business intelligence through the Power BI dashboard:
+- Identified shifts in content strategy over time
 
-- **Overall Content Overview**: Calculated and visualized total content, number of movies, number of TV shows, and the number of countries represented using summary cards and appropriate visuals.
+🔹 Genre & Rating Insights
 
-- **Content Type Distribution by Release Year**: Analyzed the trends of Movies vs. TV Shows released over time using an area chart, identifying periods of growth or shift in content strategy.
+- Analysed genre distribution to identify dominant and emerging categories
 
-- **Genre Popularity**: Explored the distribution of content across various genres (e.g., TV Shows, TV Sci-Fi & Fantasy, TV Horror, TV Dramas, TV Comedies, Thrillers, Stand-Up Comedy & Talk Shows) using bar charts.
+- Evaluated content ratings to understand audience targeting and maturity levels
 
-- **Geographic Analysis**: Identified the top directors by country and analyzed content distribution across different regions (Europe, Africa, South America, etc.) using map visuals and tables.
+🔹 Geographic & Creator Analysis
 
-- **Rating Distribution**: Examined the breakdown of content by various ratings (e.g., GNC-17, NR, PG, PG-13) using bar charts or pie charts.
+- Analysed content distribution across countries
 
-## Key Findings and Impact:
+- Identified top directors by country and content type
 
-- **Content Library Composition**: Netflix has a Total Content of 8.78K, with 6.13K Movies and 2.66K TV Shows. This indicates a larger volume of movies compared to TV shows.
+- Assessed global diversity of content sourcing
 
-- **Global Reach**: Content originates from 86 countries, highlighting Netflix's extensive international presence.
+🔹 Dashboard Design
 
-- **Content Distribution Over Time**: The "Content Type Distribution by Release Year" chart shows the volume of both movies and TV shows increasing significantly towards more recent years (e.g., 2000s onwards), with a notable surge in TV shows around 2015-2020.
+- Built interactive KPI cards, trend charts, bar charts, and maps
 
-- **Top Genres**: The dashboard highlights various TV show genres such as TV Sci-Fi & Fantasy, TV Horror, TV Dramas, TV Comedies, and TV Action & Adventure, along with Thrillers and Stand-Up Comedy.
+- Designed for business users, not analysts
 
-- **Rating Distribution**: The dashboard presents a breakdown of content by ratings like GNC-17, NR, PG, and PG-13, with specific counts (e.g., 4.45K for one rating, 4.53K for another, and smaller counts of 5 and 8).
+- Enabled quick exploration and filtering
 
-- **Director Insights**: The "DIRECTOR BY TYPE" section indicates a significant number of entries (4.45K and 4.53K) related to directors, suggesting a rich pool of creators. "TOP DIRECTORS BY COUNTRY" provides a geographical breakdown of directorial contributions.
+# Key Business Insights and Strategic Impact
+*(Translated for content, strategy, and leadership teams)*
 
-## Strategic Recommendations:
+- Netflix’s library is movie-heavy, but TV shows are growing faster
+ → Indicates increasing focus on episodic content for retention
 
-- **Balance Content Investment**: While movies dominate the volume, the growth in TV shows suggests a strong demand. Continue to invest strategically in both, perhaps focusing on high-impact TV series to drive subscriptions and retention.
+- Content production increased sharply post-2010
+ → Reflects aggressive content scaling and platform expansion
 
-- **Expand Genre Diversity**: Leverage the insights from top genres to identify underserved niches or emerging trends. Consider investing more in popular TV show genres to cater to diverse audience preferences.
+- TV genres dominate top-performing categories
+ → Serialized content drives sustained engagement
 
-- **Optimize Global Content Acquisition**: Utilize the "No. of Countries" and "TOP DIRECTORS BY COUNTRY" insights to identify regions with high content output or strong audience engagement. This can inform future content acquisition or production partnerships.
+- Content originates from 86 countries
+ → Strong global footprint with opportunities for deeper regional focus
 
-- **Targeted Content Development based on Ratings**: Understand which ratings perform best with specific audience segments to guide future content development and marketing campaigns.
+- Rating distribution highlights mixed audience targeting
+ → Enables content planning by demographic segments
 
-- **Leverage Director Talent**: Analyze the "DIRECTOR BY TYPE" and "TOP DIRECTORS BY COUNTRY" data to identify prolific or highly-rated directors for potential collaborations, especially those with a strong track record in high-demand content types or genres.
+# Strategic Recommendations
 
-## Tools and Technologies:
+- Maintain a balanced investment between movies and high-impact TV series
 
-- **Data Visualization & Analysis**: Power BI 
+- Use genre insights to identify over- and under-invested categories
 
-- **Data Source**: Multiple CSV files from Kaggle (netflix data.xlsx - netflix1.csv, netflix data.xlsx - Sheet2.csv, netflix data.xlsx - Sheet1.csv), linked by release_year.
+- Expand regional content sourcing in high-growth markets
 
-## Visualizations:
+- Align future content strategy with audience maturity preferences
 
-- Overall Content Metrics (Total Content, No. of Countries, No. of Shows, No. of Movies)
+- Use content analytics as a continuous planning tool, not static reporting
 
-- Content Type Distribution by Release Year (Area Chart)
+# Tools and Technologies
 
-- Genre Distribution (Bar Chart)
+- Power BI – data modelling, DAX measures, interactive dashboards
 
-- Top Directors by Country (Map/Table)
+- Netflix datasets – publicly available Kaggle CSV files
 
-- Director by Type (Bar Chart)
+# Why this Matters for Media & Content Teams
 
-- Rating Distribution (Bar Chart)
+This project shows how content analytics can:
+
+- Support data-driven content investment decisions
+
+- Identify shifts in audience demand
+
+- Improve portfolio balance across genres and formats
+
+- Strengthen global content strategy
+
+Applicable to:
+
+- Streaming and OTT platforms
+
+- Media and entertainment companies
+
+- Content acquisition and planning teams
+
+- Digital media strategy roles
+
+# 📌 Note
+
+This project uses publicly available Netflix datasets.
+
+The focus is on strategic insight generation and dashboard-driven storytelling, not raw data processing.
+
+# 💬 How I Can Help You
+
+If your team wants to:
+
+- Analyse content libraries using data
+
+- Optimise content mix and genre strategy
+
+- Build Power BI dashboards for content planning
+
+- Support media decisions with analytics
+
+I can help design content analytics dashboards and insight frameworks tailored to your data.
